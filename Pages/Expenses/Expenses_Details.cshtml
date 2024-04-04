@@ -1,0 +1,18 @@
+﻿@page
+@model projekt.Pages.Expenses.Expenses_DetailsModel
+@{
+    ViewData["Title"] = "Expenses Details";
+}
+<h1 style="color:green">
+    Details
+</h1>
+<br />
+<p>Id: @Model.expense.Id</p>
+<p>Name: @Model.expense.Name</p>
+<p>Date: @Model.expense.Date m</p>
+<p>Price: @Model.expense.Price kg</p>
+<p>Category: @Model.expense.ThisCategoryMoney.Name</p>
+<br />
+<div class="row col-sm-12">
+    <a asp-page="Expenses_Index" class="btn btn-primary btn-large">Exit</a>
+</div>

@@ -1,0 +1,19 @@
+﻿@page
+@model projekt.Pages.Expenses.Expenses_ShowcaseModel
+@{
+    ViewData["Title"] = "Expenses Showcase";
+}
+@{
+    string kolor = "color:red";
+    if (Model.result.Sum < 2000) kolor = "color:blue";
+}
+<h2 style="@kolor" ; font-style: italic; font-size: medium; font-weight: 700">
+    Total Expenses: @Model.result.Sum
+</h2>
+From: @Model.result.DateFrom<p></p>
+To: @Model.result.DateTo<p></p>
+
+<br />
+<div class="row col-sm-12">
+    <a asp-page="Expenses_Index" class="btn btn-primary btn-large">Exit</a>
+</div>

@@ -1,0 +1,46 @@
+﻿@page
+@model projekt.Pages.Admin.Role_AccountModel
+@{
+    ViewData["Title"] = "Roles";
+}
+<h1>List of Accounts</h1>
+<br />
+
+<br />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+Model.Accounts[0].Id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+    Model.Accounts[0].Login)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+        Model.Accounts[0].Category)
+            </th>
+            <th scope="col">Give Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Accounts)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(m => p.Id)</th>
+                <td>@Html.DisplayFor(m => p.Login)</td>
+                <td>@Html.DisplayFor(m => p.Category)</td>
+                <td>
+                    <a asp-page="Role_Account_Admin" asp-route-id=@p.Id>Admin</a> | 
+                    <a asp-page="Role_Account_Editor" asp-route-id=@p.Id>Editor</a> |
+                    <a asp-page="Role_Account_Observer" asp-route-id=@p.Id>Observer</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+

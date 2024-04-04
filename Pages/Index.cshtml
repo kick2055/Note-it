@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1 style="color:green" ; font-style: italic; font-size: medium; font-weight: 700">
+    Welcome to your private Notebook!
+</h1>
+<br />
+<br />
+<div class="row col-sm 1">
+    <a asp-page="Notes/Notes_Index" class="btn btn-primary btn-large">Notes</a>
+
+</div>
+<br />
+<div class="row col-sm 1">
+    <a asp-page="Expenses/Expenses_Index" class="btn btn-primary btn-large">Expenses</a>
+
+</div>

@@ -1,0 +1,73 @@
+﻿@page
+@model projekt.Pages.Expenses.Expenses_IndexModel
+@{
+    ViewData["Title"] = "Expenses";
+}
+<h1>List of Expenses</h1>
+<br />
+<div class="row col-sm-12">
+    <a asp-page="Expenses_Create" class="btn btn-primary btn-large">Add expense</a>
+</div>
+
+<tr></tr>
+<br />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+Model.wydatki[0].Date)
+            </th>
+
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+    Model.wydatki[0].Name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+Model.wydatki[0].Price)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+Model.wydatki[0].ThisCategoryMoney)
+            </th>
+
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.wydatki)
+        {
+        <tr>
+            <th scope="row">@Html.DisplayFor(m => p.Date)</th>
+            <td>@Html.DisplayFor(m => p.Name)</td>
+            <td>@Html.DisplayFor(m => p.Price)</td>
+            <td>@Html.DisplayFor(m => p.ThisCategoryMoney.Name)</td>
+            <td>
+                <a asp-page="Expenses_Edit" asp-route-id=@p.Id>Edit</a> |
+                <a asp-page="Expenses_Delete" asp-route-id=@p.Id>Delete</a> |
+                <a asp-page="Expenses_Details" asp-route-id=@p.Id>Details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+<div class="row col-sm-12">
+    <a asp-page="Expenses_Calculation" class="btn btn-primary btn-large">Calculate Expenses</a>
+</div>
+<br />
+<div class="row col-sm-12">
+    <a asp-page="Expenses_Categories" class="btn btn-primary btn-large">Categories Settings</a>
+</div>
+<br />
+
+<h2 style="color:green" ; font-style: italic; font-size: medium; font-weight: 700">
+    Number of Expenses added in this session: @Model.count
+</h2>
+<br />
+<h2 style="color:red" ; font-style: italic; font-size: medium; font-weight: 700">
+    Number of Expenses deleted in this session: @Model.countDelete
+</h2>

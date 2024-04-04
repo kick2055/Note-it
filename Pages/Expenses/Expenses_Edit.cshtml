@@ -1,0 +1,47 @@
+﻿@page
+@model projekt.Pages.Expenses.Expenses_EditModel
+@{
+    ViewData["Title"] = "Expenses Edit";
+}
+<h1>Edycja Produktu</h1>
+<br />
+<br />
+<div class="container">
+    <form class="form-horizontal" method="post" asp-antiforgery="false">
+        <div class="form-group">
+            <label asp-for="newExpense.Name" class="control-label col-sm-
+2"></label>
+            <span asp-validation-for="newExpense.Name" style="color: red"></span>
+            <div class="col-sm-6">
+                <input asp-for="newExpense.Name" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="newExpense.Price" class="control-label col-sm-
+2"></label>
+            <div class="col-sm-6">
+                <input asp-for="newExpense.Price" class="form-control">
+                <span asp-validation-for="newExpense.Price" style="color: red"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="newExpense.Date" class="control-label col-sm-
+2"></label>
+            <span asp-validation-for="newExpense.Date" style="color: red"></span>
+            <div class="col-sm-6">
+                <input asp-for="newExpense.Date" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="newExpense.ThisCategoryMoney" class="control-label"></label>
+            <select asp-for="idcategory" class="form-control" asp-items="ViewBag.ThisCategoryMoney"></select>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn btn-primary">Edytuj</button>
+            </div>
+        </div>
+    </form>
+</div>

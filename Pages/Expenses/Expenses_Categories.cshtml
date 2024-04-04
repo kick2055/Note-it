@@ -1,0 +1,46 @@
+﻿@page
+@model projekt.Pages.Expenses.Expenses_CategoriesModel
+@{
+    ViewData["Title"] = "Expenses Categories";
+}
+<h1>List of Categories</h1>
+<br />
+<div class="row col-sm-12">
+    <a asp-page="Expenses_Categories_Create" class="btn btn-primary btn-large">Add Category</a>
+</div>
+<br />
+<div class="row col-sm-12">
+    <a asp-page="Expenses_Categories_Create_Session" class="btn btn-primary btn-large">Add deleted category</a>
+</div>
+<tr></tr>
+<br />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+Model.categories[0].id)
+            </th>
+
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+    Model.categories[0].Name)
+            </th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.categories)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(m => p.id)</th>
+                <td>@Html.DisplayFor(m => p.Name)</td>
+                <td>
+                    <a asp-page="Expenses_Categories_Delete" asp-route-id=@p.id>Delete</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />

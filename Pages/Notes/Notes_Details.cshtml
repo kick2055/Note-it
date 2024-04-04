@@ -1,0 +1,21 @@
+﻿@page
+@model projekt.Pages.Notes.Notes_DetailsModel
+@{
+    ViewData["Title"] = "Notes Details";
+}
+<h1>Note Details</h1>
+<br />
+<div class="row col-sm-12">
+    <a asp-page="Notes_Index" class="btn btn-primary btn-large">Exit</a>
+</div>
+<tr></tr>
+<br />
+<h2 style="color:green" ; font-style: oblique; font-size: medium; font-weight: 700">
+    @Model.ReadNote.Name
+</h2>
+<br />
+<br />
+
+<p>@Html.DisplayFor(model => Model.ReadNote.Content)</p>
+
+<br />

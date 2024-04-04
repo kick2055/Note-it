@@ -1,0 +1,38 @@
+﻿@page
+@model projekt.Pages.Notes.Notes_IndexModel
+@{
+    ViewData["Title"] = "Notes";
+}
+<h1>List of Notes</h1>
+<br />
+<div class="row col-sm-12">
+    <a asp-page="Notes_Create" class="btn btn-primary btn-large">Add note</a>
+</div>
+<tr></tr>
+<br />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model =>
+Model.notes[0].Name)
+            </th>
+
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.notes)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => p.Name)</td>
+                <td>
+                    <a asp-page="Notes_Delete" asp-route-id=@p.Id>Delete</a> |
+                    <a asp-page="Notes_Details" asp-route-id=@p.Id>Details</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
